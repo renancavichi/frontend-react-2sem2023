@@ -1,0 +1,29 @@
+header {
+    background: #000;
+    height: 50px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header h1{
+    margin: 0;
+}
+
+header nav ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+header nav ul li{
+    list-style-type: none;
+}
+
+header nav ul li a{
+    color: #FFF;
+    text-decoration: none;
+}
