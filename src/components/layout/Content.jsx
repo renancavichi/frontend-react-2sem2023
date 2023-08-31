@@ -1,9 +1,9 @@
 import "./Content.css"
 
-const Content = () => {
+const Content = ({children}) => {
   return (
     <div id="content">
-        <h1>Content</h1>
+        {children}
     </div>
   )
 }

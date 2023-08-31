@@ -5,7 +5,9 @@ const Page404 = () => {
   return (
     <>
         <Header />
-        <h1>Página Não Encontrada</h1>
+        <div id="main">
+          <h1>Página Não Encontrada</h1>
+        </div>
         <Footer />
     </>
   )

@@ -1,16 +1,17 @@
+import Footer from "../layout/Footer"
 import Header from "../layout/Header"
 import Sidebar from "../layout/Sidebar"
 import Content from "../layout/Content"
-import Footer from "../layout/Footer"
 
-const Home = () => {
+const Contato = () => {
   return (
     <>
         <Header />
         <div id="main">
             <Sidebar />
             <Content>
-              <h1>Home</h1>
+                <h1>Contato</h1>
+                <p>Entre em contato conosco através do formulário abaixo:</p>
             </Content>
         </div>
         <Footer />
@@ -18,4 +19,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Contato
