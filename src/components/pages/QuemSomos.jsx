@@ -5,11 +5,13 @@ import Footer from "../layout/Footer"
 import CardUser from "../ui/CardUser"
 import { useEffect, useState } from "react"
 import Button from "react-bootstrap/Button"
+import Modal from 'react-bootstrap/Modal'
 
 
 const QuemSomos = () => {
 
     const [users, setUsers] = useState([])
+    const [showModal, setShowModal] = useState(false)
      
 
     useEffect(()=>{
@@ -33,7 +35,30 @@ const QuemSomos = () => {
             <Sidebar />
             <Content>
               <h1>Quem Somos</h1>
-              <Button as="button" variant="primary">Cadastrar Usuário</Button>
+              <Button as="button" variant="primary" onClick={() => setShowModal(true)}>Cadastrar Usuário</Button>
+
+              <Modal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title id="contained-modal-title-vcenter">
+                    Cadastrar Usuário
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>
+                    form...
+                  </p>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button onClick={() => setShowModal(false)}>Close</Button>
+                </Modal.Footer>
+              </Modal>
+
               {
                 users.length > 0 ? users.map((user) => {
                   return <CardUser key={user.id} user={user} />
