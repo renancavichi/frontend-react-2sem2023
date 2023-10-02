@@ -13,7 +13,6 @@ const QuemSomos = () => {
 
     const [users, setUsers] = useState([])
     const [showModal, setShowModal] = useState(false)
-     
 
     useEffect(()=>{
       
@@ -31,6 +30,7 @@ const QuemSomos = () => {
 
     const handleSubmit = async (event) => {
       event.preventDefault()
+      
       const newUser = {
         name: event.target.name.value,
         email: event.target.email.value,
@@ -51,7 +51,6 @@ const QuemSomos = () => {
         alert(data.success)
         setShowModal(false)
         setUsers([...users, data.user])
-        
       }
     }  
 
@@ -103,9 +102,12 @@ const QuemSomos = () => {
               </Modal>
 
               {
-                users.length > 0 ? users.map((user) => {
-                  return <CardUser key={user.id} user={user} />
-                }): <p>Carregando...</p>
+                users.length > 0 ?
+                  users.map((user) => {
+                    return <CardUser key={user.id} user={user} />
+                  })
+                :
+                  <p>Carregando...</p>
               }
             </Content>
         </div>
