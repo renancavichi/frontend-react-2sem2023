@@ -4,6 +4,7 @@ import Content from "../layout/Content"
 import Footer from "../layout/Footer"
 import CardUser from "../ui/CardUser"
 import { useEffect, useState } from "react"
+import Button from "react-bootstrap/Button"
 
 
 const QuemSomos = () => {
@@ -32,6 +33,7 @@ const QuemSomos = () => {
             <Sidebar />
             <Content>
               <h1>Quem Somos</h1>
+              <Button as="button" variant="primary">Cadastrar Usuário</Button>
               {
                 users.length > 0 ? users.map((user) => {
                   return <CardUser key={user.id} user={user} />
