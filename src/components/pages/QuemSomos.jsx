@@ -6,6 +6,7 @@ import CardUser from "../ui/CardUser"
 import { useEffect, useState } from "react"
 import Button from "react-bootstrap/Button"
 import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
 
 
 const QuemSomos = () => {
@@ -27,6 +28,32 @@ const QuemSomos = () => {
       getUsers()
       
     }, [])
+
+    const handleSubmit = async (event) => {
+      event.preventDefault()
+      const newUser = {
+        name: event.target.name.value,
+        email: event.target.email.value,
+        pass: event.target.pass.value,
+        photo: event.target.photo.value
+      }
+      
+      const response = await fetch('http://localhost:3300/user',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newUser)
+      })
+
+      if(response.ok){
+        const data = await response.json()
+        alert(data.success)
+        setShowModal(false)
+        setUsers([...users, data.user])
+        
+      }
+    }  
 
   return (
     <>
@@ -50,9 +77,25 @@ const QuemSomos = () => {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <p>
-                    form...
-                  </p>
+                  <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3">
+                      <Form.Label>Nome</Form.Label>
+                      <Form.Control type="text" name="name"/>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control type="email" name="email" />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label>Senha</Form.Label>
+                      <Form.Control type="password" name="pass" />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label>URL Foto</Form.Label>
+                      <Form.Control type="text" name="photo"/>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">Cadastrar</Button>
+                  </Form>
                 </Modal.Body>
                 <Modal.Footer>
                   <Button onClick={() => setShowModal(false)}>Close</Button>
