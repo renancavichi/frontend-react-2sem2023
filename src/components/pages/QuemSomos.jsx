@@ -104,7 +104,7 @@ const QuemSomos = () => {
               {
                 users.length > 0 ?
                   users.map((user) => {
-                    return <CardUser key={user.id} user={user} />
+                    return <CardUser key={user.id} user={user} users={users} setUsers={setUsers} />
                   })
                 :
                   <p>Carregando...</p>
