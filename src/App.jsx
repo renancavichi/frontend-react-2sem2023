@@ -4,15 +4,18 @@ import Page404 from "./components/pages/Page404"
 import Contato from "./components/pages/Contato"
 import {Routes, Route} from "react-router-dom"
 import "./App.css"
+import Initializer from "./components/others/Initializer"
 
 const App = () => {
-  return (
+  return (<>
+    <Initializer />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/quem-somos" element={<QuemSomos />} />
       <Route path="/contato" element={<Contato />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
+  </>
   )
 }
 
