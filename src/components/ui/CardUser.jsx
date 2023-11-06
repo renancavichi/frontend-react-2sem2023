@@ -19,6 +19,7 @@ const CardUser = ({user, users, setUsers}) => {
       headers: {
         'Content-Type': 'application/json'
       },
+      credentials: 'include',
       body: JSON.stringify({id: id})
     })
 
@@ -45,6 +46,7 @@ const CardUser = ({user, users, setUsers}) => {
       headers: {
         'Content-Type': 'application/json'
       },
+      credentials: 'include',
       body: JSON.stringify(newUser)
     })
 
